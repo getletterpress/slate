@@ -3,13 +3,10 @@ title: API Reference
 
 language_tabs:
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://app.getletterpress.com'>Sign Up for a Developer Key</a>
+  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
   - errors
@@ -19,171 +16,230 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+You've reached the Letterpress API documentation. The Letterpress API follows json:api recommendations. For more information, see <a href='http://jsonapi.org'>json:api</a>.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+You must have a Letterpress account to make calls to the API. Your setup and authorization information is in the dashboard <a href='https://app.getletterpress.com/setup'>https://app.getletterpress.com/setup</a>.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Secondly you must upload PDF creatives to mail in the <a href='https://app.getletterpress.com/creatives'>API creative dashboard</a>.
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl -X GET -H "Accept: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.getletterpress.com/api/v1/creatives
 ```
 
-```javascript
-const kittn = require('kittn');
+> You must replace BokS593809494582wvpp with your personal API token and test@example.com with your email.
 
-let api = kittn.authorize('meowmeowmeow');
-```
+To authorize, pass in your email and access token as headers:
 
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`X-User-Token: BokS593809494582wvpp`
+`X-User-Email: test@example.com`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>BokS593809494582wvpp</code> with your personal API token and <code>test@example.com</code> with your email.
 </aside>
 
-# Kittens
+# Creatives
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Get All Creatives
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+curl -X GET -H "Accept: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.getletterpress.com/api/v1/creatives
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [{
+    "id": "KHYKUARR",
+    "type": "creatives",
+    "links": {
+      "self": "https://app.getletterpress.com/api/v1/creatives/KHYKUARR"
+    },
+    "attributes": {
+      "name": "New User First Mailer",
+      "creative-id": "KHYKUARR"
+    }
+  }]
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint retrieves all creatives for the account that have been loaded into the dashboard at <a href="https://app.getletterpress.com/creatives">https://app.getletterpress.com/creatives</a>.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://app.getletterpress.com/api/v1/creatives`
 
-### URL Parameters
+# Mailers
+
+## Create Mailers
+
+```shell
+curl -X POST -H "Accept: application/vnd.api+json" -H "Content-Type: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.getletterpress.com/api/v1/mailers -d '{"data": [{"type":"mailers", "attributes":{"name":"SeptemberMailer12016", "external-id": "your-id", "creative-id": "KHYKUARR", "firstname":"John", "lastname":"Doe", "email":"john.doe@test.com"}},{"type":"mailers", "attributes":{"name":"SeptemberMailer12016", "external-id": "your-second-id", "creative-id": "KHYKUARR", "firstname":"Jane", "lastname":"Doe", "address1": "1234 Main St", "address2": "Something secondary", "city": "San Diego","state": "CA","zip": "92102"}}]}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [{
+    "id": "21",
+    "type": "mailers",
+    "links": {
+      "self": "https://app.getletterpress.com/api/v1/mailers/21"
+    },
+    "attributes": {
+      "name": "SeptemberMailer12016",
+      "creative-id": "KHYKUARR",
+      "email": "john.doe@test.com",
+      "firstname": "John",
+      "lastname": "Doe",
+      "address1": null,
+      "address2": null,
+      "city": null,
+      "state": null,
+      "zip": null,
+      "test-mode": false,
+      "external-id": "your-id"
+    }
+  }, {
+    "id": "22",
+    "type": "mailers",
+    "links": {
+      "self": "https://app.getletterpress.com/api/v1/mailers/22"
+    },
+    "attributes": {
+      "name": "SeptemberMailer12016",
+      "creative-id": "KHYKUARR",
+      "email": null,
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "address1": "1234 Main St",
+      "address2": "Something secondary",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92102",
+      "test-mode": false,
+      "external-id": "your-second-id"
+    }
+  }]
+}
+```
+
+This endpoint creates a new mailer that will be sent to the addressee. Either an email address or an address is required. If only an email address is provided Letterpress will run a reverse email append to find a current postal address.
+
+If a USPS certified address is not provided the piece will not be mailed - this will be reflected in the status of the mailer within 24 hours.
+
+Multiple mailers can be created for each API call by nesting multiple requests in the data array.
+
+A sample json request to create mailers looks like this:
+{
+  "data": [{
+    "type": "mailers",
+    "attributes": {
+      "name": "SeptemberMailer12016",
+      "external-id": "your-id",
+      "creative-id": "KHYKUARR",
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "john.doe@test.com"
+    }
+  }, {
+    "type": "mailers",
+    "attributes": {
+      "name": "SeptemberMailer12016",
+      "external-id": "your-second-id",
+      "creative-id": "KHYKUARR",
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "address1": "1234 Main St",
+      "address2": "Something secondary",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92102"
+    }
+  }]
+}
+
+### HTTP Request
+
+`POST https://app.getletterpress.com/api/v1/mailers`
+
+### Post Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+name | true | Name of the mailer. Same-named mailers will be grouped in the dashboard for performance analysis.
+external-id | false | Your internal id that you want this mailer tagged with.
+creative-id | true | The creative id that you got from the creative endpoint.
+firstname | true | Recipient first name.
+lastname | true | Recipient last name.
+email | false | If no address is given, Letterpress will attempt a reverse email append on this email.
+address1 | false | First line of address.
+address2 | false | Second line of address.
+city | false | City of address.
+state | false | State of address.
+zip | false | Zip of address.
+test-mode | false | If set to true this mailer will not be sent. Defaults to false.
+
+
+## Show Mailer
+
+```shell
+curl -X GET -H "Accept: application/vnd.api+json" -H "Content-Type: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.getletterpress.com/api/v1/mailers/1234
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": "1234",
+    "type": "mailers",
+    "links": {
+      "self": "https://app.getletterpress.com/api/v1/mailers/1234"
+    },
+    "attributes": {
+      "name": "SeptemberMailer12016",
+      "creative-id": "KHYKUARR",
+      "mailed": false,
+      "status": "Processing",
+      "email": "john.doe@test.test",
+      "firstname": "John",
+      "lastname": "Doe",
+      "test-mode": false,
+      "external-id": "some-customer-id"
+    }
+  }
+}
+```
+
+This endpoint returns the status of a previously created mailer. Use the id or uri returned from the original create post API call to retrieve the status.
+
+The status has three possible values:
+"Processing" if the email append or address verification is still in progress.
+"Address failed certification" if the address passed in failed CASS certification.
+"No adddress found for email" if no address was passed in and there was no match on the email to postal lookup.
+"Mailed" if the piece was successfully mailed.
+
+### HTTP Request
+
+`GET https://app.getletterpress.com/api/v1/mailers/12345`
+
+### Response Attributes
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
-
+name | Name of the mailer.
+external-id | Your internal id that was passed in during creation.
+creative-id | The creative id that correlates to the creative endpoint.
+mailed | True/False depending on mailed status.
+status | Mail piece status.
+firstname | Recipient first name.
+lastname | Recipient last name.
+email | If no address is given, Letterpress will attempt a reverse email append on this email.
+test-mode | Denotes whether this was a test mailer.
