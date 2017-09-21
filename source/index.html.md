@@ -243,3 +243,88 @@ firstname | Recipient first name.
 lastname | Recipient last name.
 email | If no address is given, Letterpress will attempt a reverse email append on this email.
 test-mode | Denotes whether this was a test mailer.
+
+# Transactions
+
+## Get All Transactions
+
+```shell
+curl -X GET https://postie.com/api/v1/transactions \
+-H "Accept: application/vnd.api+json" \
+-H "Content-Type: application/vnd.api+json" \
+-H "X-User-Token: BokS593809494582wvpp" \
+-H "X-User-Email: test@example.com"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": [
+        {
+            "attributes": {
+                "campaign-id": 3,
+                "campaign-name": "Your Campaign",
+                "completed-at": null,
+                "number": "123"
+            },
+            "id": "1",
+            "links": {
+                "self": "https://postie.com/api/v1/transactions/1"
+            },
+            "type": "transactions"
+        }
+    ]
+}
+```
+
+This endpoint retrieves all transactions along with the related campaign id and name.
+
+### HTTP Request
+
+`GET https://postie.com/api/v1/transactions`
+
+## Get a Specific Transaction
+
+```shell
+curl -X GET https://postie.com/api/v1/transactions/1 \
+-H "Accept: application/vnd.api+json" \
+-H "Content-Type: application/vnd.api+json" \
+-H "X-User-Token: BokS593809494582wvpp" \
+-H "X-User-Email: test@example.com"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": {
+        "attributes": {
+            "campaign-id": 3,
+            "campaign-name": "Your Campaign",
+            "completed-at": null,
+            "order-number": "123"
+        },
+        "id": "1",
+        "links": {
+            "self": "http://localhost:3000/api/v1/transactions/1"
+        },
+        "type": "transactions"
+    }
+}
+```
+
+This endpoint retrieves a specific transaction.
+
+### HTTP Request
+
+`GET https://postie.com/api/v1/transactions/:id`
+
+### Response Attributes
+
+Parameter | Description
+--------- | -----------
+campaign-id | The id of the campaign
+campaign-name | The name of the campaign
+completed-at | The date the transaction completed
+order-number | The order number associated with the transaction
