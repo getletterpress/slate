@@ -16,9 +16,9 @@ search: true
 
 # Introduction
 
-You've reached the Letterpress API documentation. The Letterpress API follows json:api recommendations. For more information, see <a href='http://jsonapi.org'>json:api</a>.
+You've reached the Postie API documentation. The Postie API follows json:api recommendations. For more information, see <a href='http://jsonapi.org'>json:api</a>.
 
-You must have a Letterpress account to make calls to the API. Your setup and authorization information is in the dashboard <a href='https://app.postie.com/setup'>https://app.postie.com/setup</a>.
+You must have a Postie account to make calls to the API. Your setup and authorization information is in the dashboard <a href='https://app.postie.com/setup'>https://app.postie.com/setup</a>.
 
 Secondly you must upload PDF creatives to mail in the <a href='https://app.postie.com/creatives'>API creative dashboard</a>.
 
@@ -130,7 +130,7 @@ curl -X POST -H "Accept: application/vnd.api+json" -H "Content-Type: application
 }
 ```
 
-This endpoint creates a new mailer that will be sent to the addressee. Either an email address or an address is required. If only an email address is provided Letterpress will run a reverse email append to find a current postal address.
+This endpoint creates a new mailer that will be sent to the addressee. Either an email address or an address is required. If only an email address is provided Postie will run a reverse email append to find a current postal address.
 
 If a USPS certified address is not provided the piece will not be mailed - this will be reflected in the status of the mailer within 24 hours.
 
@@ -178,7 +178,7 @@ external-id | false | Your internal id that you want this mailer tagged with.
 creative-id | true | The creative id that you got from the creative endpoint.
 firstname | true | Recipient first name.
 lastname | true | Recipient last name.
-email | false | If no address is given, Letterpress will attempt a reverse email append on this email.
+email | false | If no address is given, Postie will attempt a reverse email append on this email.
 address1 | false | First line of address.
 address2 | false | Second line of address.
 city | false | City of address.
@@ -241,7 +241,7 @@ mailed | True/False depending on mailed status.
 status | Mail piece status.
 firstname | Recipient first name.
 lastname | Recipient last name.
-email | If no address is given, Letterpress will attempt a reverse email append on this email.
+email | If no address is given, Postie will attempt a reverse email append on this email.
 test-mode | Denotes whether this was a test mailer.
 
 # Transactions
