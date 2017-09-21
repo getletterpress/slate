@@ -5,7 +5,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='https://app.getletterpress.com'>Sign Up for a Developer Key</a>
+  - <a href='https://app.postie.com'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -18,9 +18,9 @@ search: true
 
 You've reached the Letterpress API documentation. The Letterpress API follows json:api recommendations. For more information, see <a href='http://jsonapi.org'>json:api</a>.
 
-You must have a Letterpress account to make calls to the API. Your setup and authorization information is in the dashboard <a href='https://app.getletterpress.com/setup'>https://app.getletterpress.com/setup</a>.
+You must have a Letterpress account to make calls to the API. Your setup and authorization information is in the dashboard <a href='https://app.postie.com/setup'>https://app.postie.com/setup</a>.
 
-Secondly you must upload PDF creatives to mail in the <a href='https://app.getletterpress.com/creatives'>API creative dashboard</a>.
+Secondly you must upload PDF creatives to mail in the <a href='https://app.postie.com/creatives'>API creative dashboard</a>.
 
 # Authentication
 
@@ -28,7 +28,7 @@ Secondly you must upload PDF creatives to mail in the <a href='https://app.getle
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl -X GET -H "Accept: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.getletterpress.com/api/v1/creatives
+curl -X GET -H "Accept: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.postie.com/api/v1/creatives
 ```
 
 > You must replace BokS593809494582wvpp with your personal API token and test@example.com with your email.
@@ -47,7 +47,7 @@ You must replace <code>BokS593809494582wvpp</code> with your personal API token 
 ## Get All Creatives
 
 ```shell
-curl -X GET -H "Accept: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.getletterpress.com/api/v1/creatives
+curl -X GET -H "Accept: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.postie.com/api/v1/creatives
 ```
 
 > The above command returns JSON structured like this:
@@ -58,7 +58,7 @@ curl -X GET -H "Accept: application/vnd.api+json" -H "X-User-Token: BokS59380949
     "id": "KHYKUARR",
     "type": "creatives",
     "links": {
-      "self": "https://app.getletterpress.com/api/v1/creatives/KHYKUARR"
+      "self": "https://app.postie.com/api/v1/creatives/KHYKUARR"
     },
     "attributes": {
       "name": "New User First Mailer",
@@ -68,18 +68,18 @@ curl -X GET -H "Accept: application/vnd.api+json" -H "X-User-Token: BokS59380949
 }
 ```
 
-This endpoint retrieves all creatives for the account that have been loaded into the dashboard at <a href="https://app.getletterpress.com/creatives">https://app.getletterpress.com/creatives</a>.
+This endpoint retrieves all creatives for the account that have been loaded into the dashboard at <a href="https://app.postie.com/creatives">https://app.postie.com/creatives</a>.
 
 ### HTTP Request
 
-`GET https://app.getletterpress.com/api/v1/creatives`
+`GET https://app.postie.com/api/v1/creatives`
 
 # Mailers
 
 ## Create Mailers
 
 ```shell
-curl -X POST -H "Accept: application/vnd.api+json" -H "Content-Type: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.getletterpress.com/api/v1/mailers -d '{"data": [{"type":"mailers", "attributes":{"name":"SeptemberMailer12016", "external-id": "your-id", "creative-id": "KHYKUARR", "firstname":"John", "lastname":"Doe", "email":"john.doe@test.com"}},{"type":"mailers", "attributes":{"name":"SeptemberMailer12016", "external-id": "your-second-id", "creative-id": "KHYKUARR", "firstname":"Jane", "lastname":"Doe", "address1": "1234 Main St", "address2": "Something secondary", "city": "San Diego","state": "CA","zip": "92102"}}]}'
+curl -X POST -H "Accept: application/vnd.api+json" -H "Content-Type: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.postie.com/api/v1/mailers -d '{"data": [{"type":"mailers", "attributes":{"name":"SeptemberMailer12016", "external-id": "your-id", "creative-id": "KHYKUARR", "firstname":"John", "lastname":"Doe", "email":"john.doe@test.com"}},{"type":"mailers", "attributes":{"name":"SeptemberMailer12016", "external-id": "your-second-id", "creative-id": "KHYKUARR", "firstname":"Jane", "lastname":"Doe", "address1": "1234 Main St", "address2": "Something secondary", "city": "San Diego","state": "CA","zip": "92102"}}]}'
 ```
 
 > The above command returns JSON structured like this:
@@ -90,7 +90,7 @@ curl -X POST -H "Accept: application/vnd.api+json" -H "Content-Type: application
     "id": "21",
     "type": "mailers",
     "links": {
-      "self": "https://app.getletterpress.com/api/v1/mailers/21"
+      "self": "https://app.postie.com/api/v1/mailers/21"
     },
     "attributes": {
       "name": "SeptemberMailer12016",
@@ -110,7 +110,7 @@ curl -X POST -H "Accept: application/vnd.api+json" -H "Content-Type: application
     "id": "22",
     "type": "mailers",
     "links": {
-      "self": "https://app.getletterpress.com/api/v1/mailers/22"
+      "self": "https://app.postie.com/api/v1/mailers/22"
     },
     "attributes": {
       "name": "SeptemberMailer12016",
@@ -167,7 +167,7 @@ A sample json request to create mailers looks like this:
 
 ### HTTP Request
 
-`POST https://app.getletterpress.com/api/v1/mailers`
+`POST https://app.postie.com/api/v1/mailers`
 
 ### Post Parameters
 
@@ -190,7 +190,7 @@ test-mode | false | If set to true this mailer will not be sent. Defaults to fal
 ## Show Mailer
 
 ```shell
-curl -X GET -H "Accept: application/vnd.api+json" -H "Content-Type: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.getletterpress.com/api/v1/mailers/1234
+curl -X GET -H "Accept: application/vnd.api+json" -H "Content-Type: application/vnd.api+json" -H "X-User-Token: BokS593809494582wvpp" -H "X-User-Email: test@example.com" https://app.postie.com/api/v1/mailers/1234
 ```
 
 > The above command returns JSON structured like this:
@@ -201,7 +201,7 @@ curl -X GET -H "Accept: application/vnd.api+json" -H "Content-Type: application/
     "id": "1234",
     "type": "mailers",
     "links": {
-      "self": "https://app.getletterpress.com/api/v1/mailers/1234"
+      "self": "https://app.postie.com/api/v1/mailers/1234"
     },
     "attributes": {
       "name": "SeptemberMailer12016",
@@ -228,7 +228,7 @@ The status has three possible values:
 
 ### HTTP Request
 
-`GET https://app.getletterpress.com/api/v1/mailers/12345`
+`GET https://app.postie.com/api/v1/mailers/12345`
 
 ### Response Attributes
 
@@ -249,7 +249,7 @@ test-mode | Denotes whether this was a test mailer.
 ## Get All Transactions
 
 ```shell
-curl -X GET https://postie.com/api/v1/transactions \
+curl -X GET https://app.postie.com/api/v1/transactions \
 -H "Accept: application/vnd.api+json" \
 -H "Content-Type: application/vnd.api+json" \
 -H "X-User-Token: BokS593809494582wvpp" \
@@ -270,7 +270,7 @@ curl -X GET https://postie.com/api/v1/transactions \
             },
             "id": "1",
             "links": {
-                "self": "https://postie.com/api/v1/transactions/1"
+                "self": "https://app.postie.com/api/v1/transactions/1"
             },
             "type": "transactions"
         }
@@ -282,12 +282,12 @@ This endpoint retrieves all transactions along with the related campaign id and 
 
 ### HTTP Request
 
-`GET https://postie.com/api/v1/transactions`
+`GET https://app.postie.com/api/v1/transactions`
 
 ## Get a Specific Transaction
 
 ```shell
-curl -X GET https://postie.com/api/v1/transactions/1 \
+curl -X GET https://app.postie.com/api/v1/transactions/1 \
 -H "Accept: application/vnd.api+json" \
 -H "Content-Type: application/vnd.api+json" \
 -H "X-User-Token: BokS593809494582wvpp" \
@@ -307,7 +307,7 @@ curl -X GET https://postie.com/api/v1/transactions/1 \
         },
         "id": "1",
         "links": {
-            "self": "http://localhost:3000/api/v1/transactions/1"
+            "self": "https://app.postie.com/api/v1/transactions/1"
         },
         "type": "transactions"
     }
@@ -318,7 +318,7 @@ This endpoint retrieves a specific transaction.
 
 ### HTTP Request
 
-`GET https://postie.com/api/v1/transactions/:id`
+`GET https://app.postie.com/api/v1/transactions/1`
 
 ### Response Attributes
 
