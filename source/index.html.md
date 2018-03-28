@@ -328,3 +328,54 @@ campaign-id | The id of the campaign
 campaign-name | The name of the campaign
 completed-at | The date the transaction completed
 order-number | The order number associated with the transaction
+
+# Do Not Mail Audience Members
+
+## Create a Do Not Mail Audience Member
+
+```shell
+curl -X POST \
+-H "Accept: application/vnd.api+json" \
+-H "Content-Type: application/vnd.api+json" \
+-H "X-User-Token: BokS593809494582wvpp" \
+-H "X-User-Email: test@example.com" \
+https://app.postie.com/api/v1/audience-members \
+-d '{"data": {"type":"mailers", "attributes":{"name":"SeptemberMailer12016", "external-id": "your-id", "creative-id": "KHYKUARR", "firstname":"John", "lastname":"Doe", "email":"john.doe@test.com"}},{"type":"mailers", "attributes":{"name":"SeptemberMailer12016", "external-id": "your-second-id", "creative-id": "KHYKUARR", "firstname":"Jane", "lastname":"Doe", "address1": "1234 Main St", "address2": "Something secondary", "city": "San Diego","state": "CA","zip": "92102"}}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "attributes": {
+      "address1": "123 Main Street",
+      "address2": "Apt 123",
+      "city": "Los Angeles",
+      "firstname": "John",
+      "lastname": "Doe",
+      "state": "CA",
+      "zip": "90210"
+    },
+    "id": "7022",
+    "links": {
+      "self": "https://app.postie.com/api/v1/audience-members/7022"
+    },
+    "type": "audience-members"
+  }
+}
+```
+
+This endpoint creates a new do not mail audience member
+
+### Post Request Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+firstname | true | The first name of the audience member
+lastname | true | The last name of the audience member
+address1 | true | The street name and number of the address
+address2 | false | The apt/suite number of the address
+city | true | The city of the address
+state | true | The state of the address
+zip | true | The zip code of the address
