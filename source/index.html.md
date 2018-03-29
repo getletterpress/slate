@@ -339,8 +339,8 @@ curl -X POST \
 -H "Content-Type: application/vnd.api+json" \
 -H "X-User-Token: BokS593809494582wvpp" \
 -H "X-User-Email: test@example.com" \
-https://app.postie.com/api/v1/audience-members \
--d '{"data": {"type":"mailers", "attributes":{"name":"SeptemberMailer12016", "external-id": "your-id", "creative-id": "KHYKUARR", "firstname":"John", "lastname":"Doe", "email":"john.doe@test.com"}},{"type":"mailers", "attributes":{"name":"SeptemberMailer12016", "external-id": "your-second-id", "creative-id": "KHYKUARR", "firstname":"Jane", "lastname":"Doe", "address1": "1234 Main St", "address2": "Something secondary", "city": "San Diego","state": "CA","zip": "92102"}}}'
+https://app.postie.com/api/v1/do-not-mail-members \
+-d '{"data": {"type":"do-not-mail-members", "attributes":{"firstname": "John", "lastname": "Doe", "address1": "123 Main Street", "address2": "Apt 123", "city": "Los Angeles", "state": "CA", "zip": "90210"}}}'
 ```
 
 > The above command returns JSON structured like this:
