@@ -329,9 +329,9 @@ campaign-name | The name of the campaign
 completed-at | The date the transaction completed
 order-number | The order number associated with the transaction
 
-# Do Not Mail Audience Members
+# Opt Out Audience Members
 
-## Create a Do Not Mail Audience Member
+## Create an Opt Out Member
 
 ```shell
 curl -X POST \
@@ -339,8 +339,8 @@ curl -X POST \
 -H "Content-Type: application/vnd.api+json" \
 -H "X-User-Token: BokS593809494582wvpp" \
 -H "X-User-Email: test@example.com" \
-https://app.postie.com/api/v1/do-not-mail-members \
--d '{"data": {"type":"do-not-mail-members", "attributes":{"firstname": "John", "lastname": "Doe", "address1": "123 Main Street", "address2": "Apt 123", "city": "Los Angeles", "state": "CA", "zip": "90210"}}}'
+https://app.postie.com/api/v1/opt-out-members \
+-d '{"data": {"type":"opt-out-members", "attributes":{"firstname": "John", "lastname": "Doe", "address1": "123 Main Street", "address2": "Apt 123", "city": "Los Angeles", "state": "CA", "zip": "90210"}}}'
 ```
 
 > The above command returns JSON structured like this:
@@ -366,7 +366,7 @@ https://app.postie.com/api/v1/do-not-mail-members \
 }
 ```
 
-This endpoint creates a new do not mail audience member
+This endpoint creates a new opt out member
 
 ### Post Request Parameters
 
